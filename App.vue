@@ -49,7 +49,7 @@ export default {
   border: none!important;
   border-bottom: 1px solid #008c8c!important;
 }
-// 修改 u-button 不同 type 的颜色
+// 修改 u-button 不同 type的颜色
 ::v-deep.u-button--primary {
   background-color: #008c8c!important;
   border-color: #008c8c!important;
