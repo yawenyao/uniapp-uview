@@ -1,0 +1,69 @@
+{
+	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+		{
+		  "path": "pages/login/login",
+		  "style": {
+		    "navigationBarTitleText": "登录"
+		  }
+		},
+		{
+			"path": "pages/home/home",
+			"style": {
+				"navigationBarTitleText": "首页"
+			}
+		},
+		{
+		  "path": "pages/stockInRecord/stockInRecord",
+		  "style": {
+		    "navigationBarTitleText": "入库记录"
+		  }
+		},
+		{
+		  "path": "pages/scanStockIn/scanStockIn",
+		  "style": {
+		    "navigationBarTitleText": "扫码入库"
+		  }
+		},
+		{
+		  "path": "pages/scanStockOut/scanStockOut",
+		  "style": {
+		    "navigationBarTitleText": "扫码出库"
+		  }
+		},
+		{
+		  "path": "pages/stockOutRecord/stockOutRecord",
+		  "style": {
+		    "navigationBarTitleText": "出库记录"
+		  }
+		},
+		{
+		  "path": "pages/mine/mine",
+		  "style": {
+		    "navigationBarTitleText": "我的"
+		  }
+		},
+		{
+			"path" : "pages/stockInDetail/stockInDetail",
+			"style" : 
+			{
+				"navigationBarTitleText" : "详情"
+			}
+		}
+	],
+	"globalStyle": {
+		"navigationBarBackgroundColor": "#008c8c",
+		    "navigationBarTextStyle": "white",
+		    "backgroundColor": "#f3f5fd",// 页面背景色
+		    "backgroundColorTop": "#f0f0f0", // 顶部背景色
+		    "backgroundColorBottom": "#e5e5e5", // 底部背景色
+		    "scrollIndicator": "none" // 隐藏滚动条
+	},
+	"uniIdRouter": {},
+	  "easycom": {
+	    "autoscan": true,
+	    "custom": {
+	      "^u-(.*)": "uview-ui/components/u-$1/u-$1.vue"
+	    }
+	  }
+	
+}

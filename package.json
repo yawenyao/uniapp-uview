@@ -1,0 +1,11 @@
+{
+  "devDependencies": {
+    "sass": "^1.83.0",
+    "sass-loader": "^10.5.2"
+  },
+  "dependencies": {
+    "@dcloudio/uni-ui": "^1.5.7",
+    "uview-ui": "^2.0.38",
+    "vue-swipe-actions": "^2.0.0-beta.20"
+  }
+}
