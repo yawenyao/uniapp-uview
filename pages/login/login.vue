@@ -20,8 +20,8 @@
 
 <script>
 import { mapMutations } from 'vuex';
-import { login as apiLogin } from '@/api/login.js';
-
+import { ssoLogin } from '@/api/login.js';
+import store from '@/store'; // 引入 Vuex store
 export default {
   data() {
     return {
@@ -40,35 +40,12 @@ export default {
     };
   },
   methods: {
- ...mapMutations(['setToken']),
     async login() {
       if (this.$refs.form.validate()) {
-        const { username, password } = this.formData;
-        try {
-          const res = await apiLogin({ username, password });
-          if (res.data && res.data.success) {
-            const token = res.data.token;
-            this.setToken(token);
-            const userInfo = res.data.userInfo;
-            uni.setStorageSync('userInfo', userInfo);
-          } else {
-            uni.showToast({
-              title: '登录失败，请检查用户名和密码',
-              icon: 'none'
-            });
-            return;
-          }
-        } catch (error) {
-          console.error('登录接口调用出错：', error);
-          uni.showToast({
-            title: '网络异常，请稍后再试',
-            icon: 'none'
-          });
-          return;
-        } finally {
-          // 修改为 switchTab 方法跳转到入库记录页面（假设是 tabBar 页面）
-          uni.navigateTo({ url: '/pages/home/home' });
-        }
+        const params = {
+                ...this.formData,
+              };
+        store.dispatch('login', params)
       }
     }
   }

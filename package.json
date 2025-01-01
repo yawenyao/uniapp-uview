@@ -1,11 +1,17 @@
 {
-  "devDependencies": {
-    "sass": "^1.83.0",
-    "sass-loader": "^10.5.2"
-  },
-  "dependencies": {
-    "@dcloudio/uni-ui": "^1.5.7",
-    "uview-ui": "^2.0.38",
-    "vue-swipe-actions": "^2.0.0-beta.20"
-  }
+	"devDependencies": {
+		"mockjs": "^1.1.0",
+		"sass": "^1.83.0",
+		"sass-loader": "^10.5.2"
+	},
+	"dependencies": {
+		"@dcloudio/uni-ui": "^1.5.7",
+		"uview-ui": "^2.0.38",
+		"vue-swipe-actions": "^2.0.0-beta.20"
+	},
+	"scripts": {
+		"serve": "NODE_ENV=development vue-cli-service serve",
+		"build": "NODE_ENV=production vue-cli-service build",
+		"dev:wechat": "cross-env NODE_ENV=development uni-cli-service build --platform mp-weixin"
+	}
 }

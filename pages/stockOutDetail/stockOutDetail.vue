@@ -9,7 +9,7 @@
 			<u-input v-model="serialNumber" placeholder="序列号"></u-input>
 		</view>
 		<view class="detail-item">
-			<text>入库时间:</text>
+			<text>出库时间:</text>
 			<u-input v-model="stockInTime" placeholder="入库时间"></u-input>
 		</view>
 		<view class="detail-item">

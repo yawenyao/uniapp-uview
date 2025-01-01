@@ -5,27 +5,34 @@
 </template>
 
 <script>
+	import store from '@/store'; // 引入 Vuex store
+
 export default {
   onLaunch: function() {
     console.log('App Launch');
     // 检查用户是否已经登录，例如通过本地存储的 token 或其他登录状态标志
-    const token = uni.getStorageSync('token');
-    if (!token) {
-      // 如果未登录，导航到登录页面
-      uni.navigateTo({
-        url: '/pages/login/login'
-      });
-    } else {
-      // 如果已经登录，可以导航到首页或其他部分页面
-      // 例如：uni.navigateTo({ url: '/pages/home/home' });
-    }
+	// this.checkLoginStatus();
+	store.dispatch('checkLoginStatus');
   },
   onShow: function() {
     console.log('App Show');
   },
   onHide: function() {
     console.log('App Hide');
-  }
+  },
+   methods: {
+      checkLoginStatus() {
+        const token = uni.getStorageSync('token');
+        if (!token) {
+          uni.navigateTo({
+            url: '/pages/login/login'
+          });
+        } else {
+          // 如果已经登录，可以导航到首页或其他部分页面
+          uni.navigateTo({ url: '/pages/home/home' });
+        }
+      }
+    }
 };
 </script>
 
@@ -34,14 +41,14 @@ export default {
 @import "~uview-ui/index.scss";
 // 修改 u-button 的圆角
 ::v-deep.u-button {
-  border-radius: 13rpx!important;
-  margin: 5rpx!important;
+  border-radius: 100rpx!important;
+  margin: 50rpx 20rpx 14rpx 14rpx!important;
   height: 84rpx!important;
 }
 
 // 修改 u-input 的圆角
 ::v-deep.u-input {
-  border-radius: 0rpx!important;
+  border-radius: 4rpx!important;
   margin: 8rpx!important;
   border-color: #008c8c!important;
   text-size-adjust: auto!important;
@@ -76,7 +83,6 @@ export default {
 
 ::v-deep.u-input__inner {
   border: 2px solid #ccc!important;
-  border-radius: 10px!important;
   padding: 10px!important;
   font-size: 16px!important;
 }
@@ -84,14 +90,12 @@ export default {
   background-color: #ff9669!important;
   border-color: #ff9669!important;
   color: white!important;
-  border-radius: 4px!important;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2)!important;
 }
 .u-button--sunOrange {
   background-color: #fa8723!important;
   border-color: #fa8723!important;
   color: white!important;
-  border-radius: 4px!important;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2)!important;
 }
 /deep/ .uni-datetime-picker {
@@ -124,5 +128,4 @@ export default {
   font-size: 14px; /* 字体大小 */
   font-weight: 400; /* 字体粗细 */
 }
-
 </style>
