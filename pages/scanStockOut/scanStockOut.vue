@@ -1,7 +1,10 @@
 <template>
 	<view class="scan-stock-page">
 		<view class="scan-section">
-			<u-button type="pinkOrange" @click="handleScan">点击扫码</u-button>
+			<u-button type="pinkOrange" @click="handleScan">
+				请扫描箱码
+				<u-icon name="scan" color="#fff" size="24"></u-icon>
+			</u-button>
 		</view>
 		<view class="form-container">
 			<view class="form-item">

@@ -58,7 +58,7 @@ export default new Vuex.Store({
 				});
 				return;
 			} finally {
-				uni.navigateTo({ url: '/pages/home/home' });
+				// uni.navigateTo({ url: '/pages/home/home' });
 			}
 		},
 		checkLoginStatus({

@@ -2,8 +2,8 @@
 	<view class="scan-stock-page">
 		<view class="scan-section">
 			<u-button type="pinkOrange" @click="handleScan">
-				<u-icon name="photo" color="#2979ff" size="28"></u-icon>
-				点击扫码
+				请扫描箱码
+				<u-icon name="scan" color="#fff" size="24"></u-icon>
 			</u-button>
 		</view>
 		<view class="form-container">

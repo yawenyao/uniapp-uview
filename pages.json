@@ -69,5 +69,13 @@
 		"backgroundColorBottom": "#e5e5e5", // 底部背景色
 		"scrollIndicator": "none" // 隐藏滚动条
 	},
-	"uniIdRouter": {}
+	"uniIdRouter": {},
+	"networkTimeout": {
+	    "request": 4000,
+	    "downloadFile": 4000,
+	    "uploadFile": 4000
+	  },
+	  "request": {
+	    "domain": "https://4a80-123-117-169-10.ngrok-free.app"
+	  }
 }
