@@ -18,7 +18,7 @@
 		</view>
 		<view class="button-container">
 			<u-button type="primary" @click="saveRecord">保存</u-button>
-			<u-button type="warning" @click="handleDelete">删除</u-button>
+			<u-button type="error" @click="handleDelete">删除</u-button>
 		</view>
 	</view>
 </template>

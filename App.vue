@@ -41,8 +41,8 @@ export default {
 @import "~uview-ui/index.scss";
 // 修改 u-button 的圆角
 ::v-deep.u-button {
-  border-radius: 100rpx!important;
-  margin: 50rpx 20rpx 14rpx 14rpx!important;
+  border-radius: 20px!important;
+  margin: 45rpx 20rpx 14rpx 14rpx!important;
   height: 84rpx!important;
 }
 
@@ -90,14 +90,13 @@ export default {
   background-color: #ff9669!important;
   border-color: #ff9669!important;
   color: white!important;
-  width: 100%;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2)!important;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2)!important;
 }
 .u-button--sunOrange {
   background-color: #fa8723!important;
   border-color: #fa8723!important;
   color: white!important;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2)!important;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2)!important;
 }
 /deep/ .uni-datetime-picker {
   border: none !important;

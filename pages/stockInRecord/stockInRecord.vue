@@ -152,6 +152,9 @@ export default {
 
 			.list-item {
 				flex: 1;
+				.box-code{
+					color :#193232;
+				}
 
 				.item-top {
 					font-size: 18px;
