@@ -1,6 +1,7 @@
 import Mock from 'mockjs';
 if (process.env.NODE_ENV === 'development') {
-	Mock.mock('https://4a80-123-117-169-10.ngrok-free.app/beef-api/supplier/getSuppliers(\\?.*)?', 'get', (options) => {
+	Mock.mock(/^http:\/\/localhost:9000\/beef-api\/supplier\/getSuppliers\?.*$/, 'get', (options) => {
+	// Mock.mock(/^http:\/\/localhost:9000\/beef-api\/supplier\/getSuppliers\?.*$/, 'get', (options) => {
 		console.log('Mock.js 拦截了 /supplier/getSuppliers 请求', options);
 		const suppliers = [];
 		for (let i = 0; i < 10; i++) {
@@ -21,7 +22,8 @@ if (process.env.NODE_ENV === 'development') {
 	console.log('Mock.js 已启用供应商接口的模拟');
 	// 拦截 POST 请求
 	console.log(1111)
-	Mock.mock('https://4a80-123-117-169-10.ngrok-free.app/beef-api/login', 'post', (options) => {
+	// Mock.mock('http://localhost:9000/beef-api/login', 'post', (options) => {
+	Mock.mock(/^http:\/\/localhost:9000\/beef-api\/login/, 'post', (options) => {
 		console.log('Mock.js 拦截了 /login 请求', options);
 		// 模拟用户信息
 		const user = {
@@ -58,7 +60,7 @@ if (process.env.NODE_ENV === 'development') {
 	});
 	console.log('import Mock from mockjs....');
 	// 拦截 GET 请求
-	Mock.mock('https://4a80-123-117-169-10.ngrok-free.app/beef-api/getStockInList(\\?.*)?', 'get', (options) => {
+	Mock.mock(/^http:\/\/localhost:9000\/beef-api\/getStockInList\?.*$/, 'get', (options) => {
 		// ...
 		try {
 			// 解析URL参数

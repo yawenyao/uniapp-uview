@@ -55,7 +55,7 @@ export default {
 <style lang="scss">
 .login-page {
   padding: 20px;
-  background-color: #f8f8f8;
+  background-color: #fff;
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -78,7 +78,7 @@ export default {
     }
 
  .u-icon {
-      margin-right: 10px;
+      margin-right: 10rpx;
     }
   }
 }
