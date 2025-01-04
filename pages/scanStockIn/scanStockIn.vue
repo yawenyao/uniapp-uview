@@ -23,10 +23,18 @@
 				<text>报关单号:</text>
 				<u-input v-model="declarationNumber" placeholder="请输入报关单号"></u-input>
 			</view>
-			<view class="form-item">
-				<text>供应商名称:</text>
-				<u-input v-model="supplierName" placeholder="请选择供应商" disabled @tap="showPicker = true" />
-				<u-picker :show="showPicker" @confirm="handlePickerConfirm" @cancel="showPicker = false" :columns="formattedColumns" keyName="name"></u-picker>
+			<view class="form-item" @tap="labelShow = true">
+				<text>供应商:</text>
+				<u-input v-model="supplierName" placeholder="请选择供应商" disabled="true"></u-input>
+				<u-picker
+					keyName="name"
+					:columns="supplierOptions"
+					:show="labelShow"
+					@confirm="handlePickerConfirm"
+					ref="uPicker"
+					@cancel="labelShow = false"
+					confirmColor="#008c8c"
+				></u-picker>
 			</view>
 			<view class="form-item">
 				<text>入库时间:</text>
@@ -49,6 +57,8 @@ export default {
 	},
 	data() {
 		return {
+			labelShow: false,
+			supplierOptions: [[]],
 			boxCode: '',
 			serialNumber: '',
 			productName: '',
@@ -57,7 +67,8 @@ export default {
 			showPicker: false,
 			supplierName: '',
 			supplierId: '',
-			columns: []
+			columns: null,
+			show: false
 		};
 	},
 	computed: {
@@ -70,12 +81,16 @@ export default {
 		this.fetchSuppliers();
 	},
 	methods: {
+		onchange(e) {
+			const value = e.detail.value;
+		},
+		onnodeclick(node) {},
 		fetchSuppliers() {
 			getSuppliers({})
 				.then((response) => {
 					if (response.code === 200) {
 						console.log(response.data);
-						this.columns = response.data;
+						this.supplierOptions = [response.data];
 					} else {
 						console.error('获取供应商数据失败:', response);
 						uni.showToast({
@@ -122,12 +137,11 @@ export default {
 			});
 		},
 		handlePickerConfirm(e) {
-			console.log('Event detail:', e.indexs); // 输出事件详情，以便调试
-			console.log('Event detail:', e.value); // 输出事件详情，以便调试
-			console.log('Event formattedColumns:', this.formattedColumns[0][e.indexs].id); // 输出事件详情，以便调试
-			this.supplierName = this.formattedColumns[0][e.indexs].name;
-			this.supplierId = this.formattedColumns[0][e.indexs].id;
-			this.showPicker = false;
+			console.log('e:', e); // 输出事件详情，以便调试
+			console.log('e.indexs:', e.value[0].id); // 输出事件详情，以便调试
+			this.supplierName = e.value[0].name;
+			this.supplierId = e.value[0].id;
+			this.labelShow = false;
 		},
 		saveRecord() {
 			if (!this.boxCode || !this.serialNumber || !this.productName || !this.declarationNumber || !this.stockInTime) {
@@ -182,15 +196,15 @@ export default {
 		}
 	},
 	watch: {
-		supplierId: {
-			handler(newVal) {
-				if (newVal) {
-					// 当 supplierId 发生变化时，更新输入框中的显示
-					this.supplierName = newVal.name;
-				}
-			},
-			deep: true
-		}
+		// supplierId: {
+		// 	handler(newVal) {
+		// 		if (newVal) {
+		// 			// 当 supplierId 发生变化时，更新输入框中的显示
+		// 			this.supplierName = newVal.name;
+		// 		}
+		// 	},
+		// 	deep: true
+		// }
 	}
 };
 </script>
@@ -219,5 +233,8 @@ export default {
 }
 .u-picker {
 	z-index: 999; // 确保 u-picker 在合适的层级显示
+}
+.picker {
+	confirmtext: #008c8c;
 }
 </style>

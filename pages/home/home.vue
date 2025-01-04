@@ -1,62 +1,60 @@
 <template>
-	<view class="home-page">
-		<!-- 轮播图区域 -->
-		<view class="swiper-section">
-			<swiper :indicator-dots="true" :autoplay="true" :interval="3000" :duration="500" class="swiper-wrapper">
-				<swiper-item class="swiper-item red-bg"></swiper-item>
-				<swiper-item class="swiper-item blue-bg"></swiper-item>
-				<swiper-item class="swiper-item green-bg"></swiper-item>
-			</swiper>
-		</view>
-		<!-- 中间功能入口卡片区域 -->
-		<view class="menu-section card">
-			<u-grid :column-num="3">
-				<u-grid-item @click="navigateToPage('stockIn')">
-					<view class="grid-item-content">
-						<image src="../../static/icon/rukuliebiao.png" class="iconSize"></image>
-						<text class="grid-item-text">入库管理</text>
-					</view>
-				</u-grid-item>
-				<u-grid-item @click="navigateToPage('stockOut')">
-					<view class="grid-item-content">
-						<image src="../../static/icon/chukuliebiao.png" class="iconSize"></image>
-						<text class="grid-item-text">出库管理</text>
-					</view>
-				</u-grid-item>
-				<u-grid-item @click="navigateToPage('scanStockIn')">
-					<view class="grid-item-content">
-						<image src="../../static/icon/scanin.png" class="iconSize"></image>
-						<text class="grid-item-text">扫码入库</text>
-					</view>
-				</u-grid-item>
-				<u-grid-item @click="navigateToPage('scanStockOut')">
-					<view class="grid-item-content">
-						<image src="../../static/icon/scanout.png" class="iconSize"></image>
-						<text class="grid-item-text">扫码出库</text>
-					</view>
-				</u-grid-item>
-				<u-grid-item @click="navigateToPage('productList')">
-					<view class="grid-item-content">
-						<image src="../../static/icon/list.png" class="iconSize"></image>
-						<text class="grid-item-text">产品列表</text>
-					</view>
-				</u-grid-item>
-			</u-grid>
-		</view>
-		<!-- 下面个人中心卡片区域 -->
-		<view class="menu-section card">
-			<u-grid :column-num="3">
-				<u-grid-item @click="navigateToPage('mine')">
-					<view class="grid-item-content">
-						<image src="../../static/icon/shezhi.png" class="iconSize"></image>
-						<text class="grid-item-text">个人中心</text>
-					</view>
-				</u-grid-item>
-			</u-grid>
-		</view>
-	</view>
+    <view class="home-page">
+        <!-- 轮播图区域 -->
+        <view class="swiper-section">
+            <swiper :indicator-dots="true" :autoplay="true" :interval="3000" :duration="500" class="swiper-wrapper">
+                <swiper-item class="swiper-item red-bg"></swiper-item>
+                <swiper-item class="swiper-item green-bg"></swiper-item>
+            </swiper>
+        </view>
+        <!-- 中间功能入口卡片区域 -->
+        <view class="menu-section card">
+            <u-grid :column-num="3">
+                <u-grid-item @click="navigateToPage('stockIn')">
+                    <view class="grid-item-content">
+                        <image src="../../static/icon/rukuliebiao.png" class="iconSize"></image>
+                        <text class="grid-item-text">{{ $t('home.scanStockIn') }}</text>
+                    </view>
+                </u-grid-item>
+                <u-grid-item @click="navigateToPage('stockOut')">
+                    <view class="grid-item-content">
+                        <image src="../../static/icon/chukuliebiao.png" class="iconSize"></image>
+                        <text class="grid-item-text">{{ $t('home.stockOut') }}</text>
+                    </view>
+                </u-grid-item>
+                <u-grid-item @click="navigateToPage('scanStockIn')">
+                    <view class="grid-item-content">
+                        <image src="../../static/icon/scanin.png" class="iconSize"></image>
+                        <text class="grid-item-text">{{ $t('home.scanStockIn') }}</text>
+                    </view>
+                </u-grid-item>
+                <u-grid-item @click="navigateToPage('scanStockOut')">
+                    <view class="grid-item-content">
+                        <image src="../../static/icon/scanout.png" class="iconSize"></image>
+                        <text class="grid-item-text">{{ $t('home.scanStockOut') }}</text>
+                    </view>
+                </u-grid-item>
+                <u-grid-item @click="navigateToPage('productList')">
+                    <view class="grid-item-content">
+                        <image src="../../static/icon/list.png" class="iconSize"></image>
+                        <text class="grid-item-text">{{ $t('home.productList') }}</text>
+                    </view>
+                </u-grid-item>
+            </u-grid>
+        </view>
+        <!-- 下面个人中心卡片区域 -->
+        <view class="menu-section card">
+            <u-grid :column-num="3">
+                <u-grid-item @click="navigateToPage('mine')">
+                    <view class="grid-item-content">
+                        <image src="../../static/icon/shezhi.png" class="iconSize"></image>
+                        <text class="grid-item-text">{{ $t('home.mine') }}</text>
+                    </view>
+                </u-grid-item>
+            </u-grid>
+        </view>
+    </view>
 </template>
-
 <script>
 export default {
 	methods: {
@@ -116,9 +114,6 @@ export default {
 		}
 	}
 	.red-bg {
-		background-color: #002fa7;
-	}
-	.blue-bg {
 		background-color: #f9dc24;
 	}
 	.green-bg {

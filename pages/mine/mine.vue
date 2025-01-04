@@ -6,8 +6,8 @@
 		<text v-else>请登录以查看更多信息。</text>
 		<view class="info-section-wrapper" v-if="userInfo">
 			<view class="info-section">
-				<view class="info-title" @click="showPersonalInfo = !showPersonalInfo">个人信息</view>
-				<view class="info-list" v-show="showPersonalInfo">
+				<view class="info-title" @tap="showPersonalInfo = !showPersonalInfo">个人信息</view>
+				<view class="info-list" v-if="showPersonalInfo">
 					<view class="info-item" v-if="userInfo.gender">
 						<text class="info-label">性别：</text>
 						<text class="info-value">{{ userInfo.gender }}</text>
@@ -26,8 +26,8 @@
 					</view>
 				</view>
 				<view class="info-section">
-					<view class="info-title" @click="showEnterpriseInfo = !showEnterpriseInfo">企业信息</view>
-					<view class="info-list" v-show="showEnterpriseInfo">
+					<view class="info-title" @tap="showEnterpriseInfo = !showEnterpriseInfo">企业信息</view>
+					<view class="info-list" v-if="showEnterpriseInfo">
 						<view class="info-item" v-if="userInfo.enterpriseName">
 							<text class="info-label">企业名称：</text>
 							<text class="info-value">{{ userInfo.enterpriseName }}</text>
@@ -202,6 +202,7 @@ export default {
     margin-bottom: 10px;
 
 .info-title {
+	align-content: start;
       font-size: 18px;
       font-weight: bold;
       color: #333;
