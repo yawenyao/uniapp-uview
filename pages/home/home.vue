@@ -7,7 +7,7 @@
                 <swiper-item class="swiper-item green-bg"></swiper-item>
             </swiper>
         </view>
-        <!-- 中间功能入口卡片区域 -->
+        <!-- 中间功能入口卡片区 -->
         <view class="menu-section card">
             <u-grid :column-num="3">
                 <u-grid-item @click="navigateToPage('stockIn')">
